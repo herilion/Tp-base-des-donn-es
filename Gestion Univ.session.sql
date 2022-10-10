@@ -35,9 +35,9 @@ CREATE TABLE  IF NOT EXISTS enrolment(
     dateEnroled DATE NOT NULL DEFAULT current_date
 );
 -- -- creation des utilisations sous le terminal
--- CREATE USER admin;
--- CREATE USER assistant;
--- CREATE USER doyen;
+CREATE USER admin;
+CREATE USER assistant;
+CREATE USER doyen;
 -- -- donner un mot de passe à l'utilisateur admin
 -- ALTER USER admin PASSWORD 'gouniv123';
 -- -- se connecter à la base des données gouniv
