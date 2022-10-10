@@ -46,13 +46,11 @@ ALTER USER admin PASSWORD 'gouniv123';
 ALTER DATABASE gouniv OWNER TO admin;
 -- -- enlèver tout privilège de la base des données au public
 REVOKE ALL PRIVILEGES ON DATABASE gouniv FROM PUBLIC;
--- -- donner tout privilè
--- -- REVOKE ALL PRIVILEGES ON DATABASE gouniv FROM PUBLIC;
--- -- REVOKE
--- -- GRANT ALL PRIVILEGES ON TABLE student,course TO doyen;
--- -- GRANT
--- -- GRANT SELECT ON TABLE staff TO doyen;
--- -- GRANT
--- -- GRANT SELECT ON TABLE student,course TO assistant;
--- -- GRANT
--- -- GRANT CONNECT ON DATABASE gouniv TO assistant,doyen;
+-- -- donner tout privilède de la table student et course à l'utilisateur doyen
+GRANT ALL PRIVILEGES ON TABLE student,course TO doyen;
+-- donner le privilège de voir la table staff à l'utilisateur doyen
+GRANT SELECT ON TABLE staff TO doyen;
+-- donner le privilège de voir les tables studen et courses à l'utilisateur assistant
+GRANT SELECT ON TABLE student,course TO assistant;
+-- -- donner le privilège de se connecter à la bdd aux utilisateurs assistant et doyen
+GRANT CONNECT ON DATABASE gouniv TO assistant,doyen;
