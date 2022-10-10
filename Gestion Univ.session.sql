@@ -1,39 +1,39 @@
 -- création de la base des données
 CREATE DATABASE gouniv;
 -- creation des tables
--- CREATE TABLE  IF NOT EXISTS staff(
---     staff_no SERIAL PRIMARY KEY,
---     name VARCHAR(250) NOT NULL DEFAULT 'PAS DE NOM',
---     region VARCHAR(100) NOT NULL DEFAULT 'PAS DE REGION'
--- );
--- CREATE TABLE  IF NOT EXISTS student(
---     student_id SERIAL PRIMARY KEY,
---     name VARCHAR(250) NOT NULL DEFAULT 'PAS DE NOM',
---     registered BOOLEAN NOT NULL DEFAULT FALSE,
---     region VARCHAR(100) NOT NULL DEFAULT 'PAS DE REGION',
---     staff_no INT REFERENCES staff(staff_no)
+CREATE TABLE  IF NOT EXISTS staff(
+    staff_no SERIAL PRIMARY KEY,
+    name VARCHAR(250) NOT NULL DEFAULT 'PAS DE NOM',
+    region VARCHAR(100) NOT NULL DEFAULT 'PAS DE REGION'
+);
+CREATE TABLE  IF NOT EXISTS student(
+    student_id SERIAL PRIMARY KEY,
+    name VARCHAR(250) NOT NULL DEFAULT 'PAS DE NOM',
+    registered BOOLEAN NOT NULL DEFAULT FALSE,
+    region VARCHAR(100) NOT NULL DEFAULT 'PAS DE REGION',
+    staff_no INT REFERENCES staff(staff_no)
 
--- );
--- CREATE TABLE  IF NOT EXISTS course(
---     course_code SERIAL PRIMARY KEY,
---     title VARCHAR(250) NOT NULL DEFAULT 'PAS DE TITRE',
---     credit INT NOT NULL DEFAULT 0,
---     quota INT NOT NULL DEFAULT 0,
---     staff_no INT REFERENCES staff(staff_no)
+);
+CREATE TABLE  IF NOT EXISTS course(
+    course_code SERIAL PRIMARY KEY,
+    title VARCHAR(250) NOT NULL DEFAULT 'PAS DE TITRE',
+    credit INT NOT NULL DEFAULT 0,
+    quota INT NOT NULL DEFAULT 0,
+    staff_no INT REFERENCES staff(staff_no)
 
--- );
--- CREATE TABLE  IF NOT EXISTS assignement(
---     assignement_id SERIAL PRIMARY KEY,
---     staff_no INT REFERENCES staff(staff_no),
---     student_id INT REFERENCES student(student_id),
---     course_code INT REFERENCES course(course_code)
+);
+CREATE TABLE  IF NOT EXISTS assignement(
+    assignement_id SERIAL PRIMARY KEY,
+    staff_no INT REFERENCES staff(staff_no),
+    student_id INT REFERENCES student(student_id),
+    course_code INT REFERENCES course(course_code)
 
--- );
--- CREATE TABLE  IF NOT EXISTS enrolment(
---     student_id INT REFERENCES student(student_id),
---     course_code INT REFERENCES course(course_code),
---     dateEnroled DATE NOT NULL DEFAULT current_date
--- );
+);
+CREATE TABLE  IF NOT EXISTS enrolment(
+    student_id INT REFERENCES student(student_id),
+    course_code INT REFERENCES course(course_code),
+    dateEnroled DATE NOT NULL DEFAULT current_date
+);
 -- -- creation des utilisations sous le terminal
 -- CREATE USER admin;
 -- CREATE USER assistant;
