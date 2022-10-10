@@ -39,7 +39,7 @@ CREATE USER admin;
 CREATE USER assistant;
 CREATE USER doyen;
 -- -- donner un mot de passe à l'utilisateur admin
--- ALTER USER admin PASSWORD 'gouniv123';
+ALTER USER admin PASSWORD 'gouniv123';
 -- -- se connecter à la base des données gouniv
 -- \c gouniv;
 -- -- donner toutes les privilèges de la base des données à l'utilisateur admin (faire de lui le propriétaire de la bdd)
